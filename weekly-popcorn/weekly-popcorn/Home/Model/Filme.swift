@@ -20,7 +20,7 @@ class Filme: NSObject,Decodable {
     let genreIDS: [Int]
     let originalLanguage, backdropPath, overview: String
     let originCountry: [String]?
-    let popularity: Double
+    let popularity: Double?
     let mediaType: String
     let adult: Bool?
     let originalTitle, releaseDate, title: String?
@@ -45,7 +45,6 @@ class Filme: NSObject,Decodable {
         case releaseDate = "release_date"
         case title, video
     }
-    
 
     init(_ originalName: String?,_ id: Int,_ name: String?,_ voteCount: Int,_ voteAverage: Double,_ firstAirDate: String,_ posterPath: String,_ genreIDS: [Int],_ originalLanguage: String,_ backdropPath: String,_ overview: String,_ originCountry: [String]?,_ popularity: Double,_ mediaType: String,_ adult: Bool?,_ originalTitle: String?,_ releaseDate: String?,_ title: String?,_ video: Bool?) {
         self.originalName = originalName
@@ -70,7 +69,6 @@ class Filme: NSObject,Decodable {
     
         
     }
-
     
     //MARK: - Functions
     

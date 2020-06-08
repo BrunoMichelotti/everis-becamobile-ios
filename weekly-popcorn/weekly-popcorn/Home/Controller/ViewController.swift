@@ -7,10 +7,9 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-    
-    
     
     // MARK: - IBOutlet
     
@@ -24,10 +23,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         colecaoFilmes.delegate = self
         getFilme()
     }
-    // MARK: - Atributos
+    // MARK: - Variaveis
     
     var paglistaFilmes: Array<Filme> = []
-    
     
     
     // MARK: - Metodos
@@ -42,6 +40,24 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             self.colecaoFilmes.reloadData()
         })
         
+    }
+    
+    //A consulta da api de detalhes (getDetalhesFilme) foi implementada no projeto com sucesso conforme proposto ao exercicio porém conforme analise do retorno verifiquei que esta api de detalhes trazia algumas informacoes incompletas, ficando inviavel a listagem das informacoes necessarias para a tela de detalhes. Portanto decidi utilizar a api de consulta de lista de filmes cujo os dados estão completos
+    
+    func  getDetalhesFilme(controller : DetalhesFilmeViewController, filme : Filme){
+        
+        DetalhesFilmeAPI().consultaDetalhesFilme(filmeId: filme.id) { (json) in
+            
+            guard let jsonData = DetalhesFilme.converteListaParaData(json) else {return}
+            
+            guard let detalhesFilme = DetalhesFilme.decodificarFilme(jsonData) else {return}
+            
+            controller.nomeFilme = detalhesFilme.title
+            controller.sinopse = detalhesFilme.overview
+            
+            self.present(controller, animated: true,completion: nil)
+            
+        }
     }
     
     // MARK: - Navigation
@@ -60,5 +76,24 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width/3-15, height: 160)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let filme = paglistaFilmes[indexPath.item]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "detalhesFilme") as! DetalhesFilmeViewController
+        //getDetalhesFilme(controller: controller, filme: filme)
+        
+        if filme.title == nil {
+            controller.nomeFilme = filme.name
+            }else{
+            controller.nomeFilme = filme.title
+        }
+        controller.sinopse = filme.overview
+        controller.rankFilme = String(filme.voteAverage)
+        controller.caminhoImagemFilme = filme.posterPath
+        self.present(controller, animated: true,completion: nil)
+    
+    }
+    
     
 }
