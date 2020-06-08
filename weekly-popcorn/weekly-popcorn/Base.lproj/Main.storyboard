@@ -154,10 +154,10 @@
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d81-tL-oLs">
-                                <rect key="frame" x="265" y="24" width="30" height="30"/>
+                                <rect key="frame" x="260" y="24" width="35" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="0d3-Mt-EjC"/>
-                                    <constraint firstAttribute="width" constant="30" id="aeD-zb-Jnh"/>
+                                    <constraint firstAttribute="height" constant="35" id="0d3-Mt-EjC"/>
+                                    <constraint firstAttribute="width" constant="35" id="aeD-zb-Jnh"/>
                                 </constraints>
                                 <state key="normal" image="fecharButtonpng.png" backgroundImage="fecharButtonpng.png">
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

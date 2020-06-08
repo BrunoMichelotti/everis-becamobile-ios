@@ -1,0 +1,6 @@
+framework module Pods_weekly_popcorn {
+  umbrella header "Pods-weekly-popcorn-umbrella.h"
+
+  export *
+  module * { export * }
+}
