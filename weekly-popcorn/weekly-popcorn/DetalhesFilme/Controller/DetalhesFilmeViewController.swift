@@ -13,6 +13,7 @@ class DetalhesFilmeViewController: UIViewController{
     
     // MARK: - IBOutlet
     
+    
     @IBOutlet weak var capaFilme: UIImageView!
     @IBOutlet weak var tituloFilme: UILabel!
     @IBOutlet weak var ratingFilme: UILabel!
