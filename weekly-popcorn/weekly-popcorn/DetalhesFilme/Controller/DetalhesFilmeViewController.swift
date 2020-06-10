@@ -13,7 +13,6 @@ class DetalhesFilmeViewController: UIViewController{
     
     // MARK: - IBOutlet
     
-    
     @IBOutlet weak var capaFilme: UIImageView!
     @IBOutlet weak var tituloFilme: UILabel!
     @IBOutlet weak var ratingFilme: UILabel!
@@ -30,29 +29,44 @@ class DetalhesFilmeViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         mapeiaTela()
-        
     }
     
-    // MARK: - Atributos
+    // MARK: - Variaveis
     
-    var caminhoImagemFilme: String? = ""
-    var nomeFilme: String? = ""
-    var rankFilme: String? = ""
-    var sinopse: String? = ""
+    var filme:Filme? = nil
 
     // MARK: - Metodos
     
     func mapeiaTela(){
-        tituloFilme.text = nomeFilme
-        sinopseFilme.text = sinopse
-        if let nota = rankFilme {ratingFilme.text = "Nota: \(nota)"}
-        if let caminho = caminhoImagemFilme{
-            let imagem = "https://image.tmdb.org/t/p/w500" + caminho
-            guard let imagemUrl = URL(string: imagem) else {return}
-            capaFilme.af_setImage(withURL: imagemUrl)
+        guard let filmeSelecionado = filme else{return}
+        sinopseFilme.text = filmeSelecionado.overview
+        ratingFilme.text = ("Nota: " + String(filmeSelecionado.voteAverage))
+        
+        if filmeSelecionado.title == nil {
+            tituloFilme.text = filmeSelecionado.name
+        }else{
+            tituloFilme.text = filmeSelecionado.title
+        }
+        
+        if let imagem = FilmeAPI().urlImagem(poster: filmeSelecionado.posterPath){
+            capaFilme.af_setImage(withURL: imagem)
+        }
+        
+    }
+    
+    //A consulta da api de detalhes (getDetalhesFilme) foi implementada no projeto com sucesso conforme proposto ao exercicio porém conforme analise do retorno verifiquei que esta api de detalhes trazia algumas informacoes incompletas, ficando inviavel a listagem das informacoes necessarias para a tela de detalhes. Portanto decidi utilizar a api de consulta de lista de filmes cujo os dados estão completos
+    
+    func  getDetalhesFilme(filme : Filme){
+        
+        DetalhesFilmeAPI().consultaDetalhesFilme(filmeId: filme.id) { (json) in
+            guard let jsonData = DetalhesFilme.converteListaParaData(json) else {return}
+            guard let detalhesFilme = DetalhesFilme.decodificarFilme(jsonData) else {return}
+            self.tituloFilme.text = detalhesFilme.title
+            self.sinopseFilme.text = detalhesFilme.overview
+            
         }
     }
     
+    
 }
-
 

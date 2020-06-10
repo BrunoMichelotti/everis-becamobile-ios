@@ -11,7 +11,11 @@ import Alamofire
 
 class DetalhesFilmeAPI: NSObject {
 
+    // MARK: - Variaveis
+    
     var url: String = ""
+    
+    // MARK: - Metodos
     
     func consultaDetalhesFilme(filmeId: Int, sucesso:@escaping(_ filmes: Dictionary<String, Any>) -> Void) -> Void{
         url = "https://api.themoviedb.org/3/movie/\(filmeId)?api_key=cf692353d76cfc50bc34648eb54b621f&language=pt-BR"

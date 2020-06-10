@@ -88,8 +88,8 @@
 		17165F4B2489347E0063E60B /* weekly-popcorn */ = {
 			isa = PBXGroup;
 			children = (
-				17188838248C728000A1B970 /* DetalhesFilme */,
 				17165F61248971470063E60B /* Home */,
+				17188838248C728000A1B970 /* DetalhesFilme */,
 				17165F4C2489347E0063E60B /* AppDelegate.swift */,
 				17165F502489347E0063E60B /* Main.storyboard */,
 				17165F56248934800063E60B /* Assets.xcassets */,
@@ -104,8 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				17165F6824897C610063E60B /* Model */,
-				17165F6724897C440063E60B /* Controller */,
 				17165F6624897C3B0063E60B /* View */,
+				17165F6724897C440063E60B /* Controller */,
 			);
 			path = Home;
 			sourceTree = "<group>";
