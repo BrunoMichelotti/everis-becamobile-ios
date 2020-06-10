@@ -23,6 +23,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         colecaoFilmes.delegate = self
         getFilme()
     }
+    
     // MARK: - Variaveis
     
     var paglistaFilmes: Array<Filme> = []
@@ -31,7 +32,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     // MARK: - Metodos
     
     func getFilme(){
-      
         FilmeAPI().consultaFilmes(sucesso: {
             (json) in
             guard let jsonData = Filme.converteListaParaData(json) else {return}
@@ -40,24 +40,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             self.colecaoFilmes.reloadData()
         })
         
-    }
-    
-    //A consulta da api de detalhes (getDetalhesFilme) foi implementada no projeto com sucesso conforme proposto ao exercicio porém conforme analise do retorno verifiquei que esta api de detalhes trazia algumas informacoes incompletas, ficando inviavel a listagem das informacoes necessarias para a tela de detalhes. Portanto decidi utilizar a api de consulta de lista de filmes cujo os dados estão completos
-    
-    func  getDetalhesFilme(controller : DetalhesFilmeViewController, filme : Filme){
-        
-        DetalhesFilmeAPI().consultaDetalhesFilme(filmeId: filme.id) { (json) in
-            
-            guard let jsonData = DetalhesFilme.converteListaParaData(json) else {return}
-            
-            guard let detalhesFilme = DetalhesFilme.decodificarFilme(jsonData) else {return}
-            
-            controller.nomeFilme = detalhesFilme.title
-            controller.sinopse = detalhesFilme.overview
-            
-            self.present(controller, animated: true,completion: nil)
-            
-        }
     }
     
     // MARK: - Navigation
@@ -69,7 +51,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let celulaFilme = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaFilme", for: indexPath) as! FilmesCollectionViewCell
         let filmeAtual = paglistaFilmes[indexPath.item]
-        celulaFilme.setaValor(filmeAtual: filmeAtual, celulaAtual: celulaFilme)
+        celulaFilme.ajusteLayout(celulaAtual: celulaFilme)
+        celulaFilme.atribuiImagem(imagemFilme: filmeAtual.posterPath)
         return celulaFilme
     }
 
@@ -81,18 +64,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let filme = paglistaFilmes[indexPath.item]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "detalhesFilme") as! DetalhesFilmeViewController
-        //getDetalhesFilme(controller: controller, filme: filme)
-        
-        if filme.title == nil {
-            controller.nomeFilme = filme.name
-            }else{
-            controller.nomeFilme = filme.title
-        }
-        controller.sinopse = filme.overview
-        controller.rankFilme = String(filme.voteAverage)
-        controller.caminhoImagemFilme = filme.posterPath
+        controller.filme = filme
         self.present(controller, animated: true,completion: nil)
-    
     }
     
     

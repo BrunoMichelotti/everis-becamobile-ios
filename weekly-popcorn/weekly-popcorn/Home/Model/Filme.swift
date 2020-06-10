@@ -70,7 +70,7 @@ class Filme: NSObject,Decodable {
         
     }
     
-    //MARK: - Functions
+    // MARK: - Metodos
     
    class func converteListaParaData(_ json: [[String:Any]]) -> Data?{
         return try? JSONSerialization.data(withJSONObject: json, options: [])
