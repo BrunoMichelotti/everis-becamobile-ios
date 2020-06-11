@@ -1,3 +1,16 @@
+# Conclusão
+
+**Abordagem**
+
+   Para chegar à solução, primeiramente instalei o gerenciador de dependência e fiz uma pesquisa para saber quais versões do Alamofire e Alamofire Image funcionavam com o Swift 4.2, que utilizamos nas aulas do curso. Após configuradas as dependências, iniciei o desenvolvimento da tela “Home”. Em seguida, implementei o consumo da API e desenvolvi um callback para retornar os dados coletados da API ao controller. Realizei um estudo do retorno da API para mapear a classe Filme e DetalhesFilme. Posteriormente, desenvolvi o decodable para transformar a resposta da API em objetos da Classe Filme. Por fim, para mapear a tela, atribui a variável local e realizei um reloaddata ao final do callback.
+   
+   Para desenvolver a funcionalidade de listagem de detalhes, realizei a mesma abordagem a qual foi utilizada para a tela Home. Porem, após ter realizado a consulta da API de detalhes e a decodificado para objetos da classe DetalhesFilme, analisei os dados de retorno e verifiquei que as informações que seriam utilizadas para a tela de detalhes vinham em sua maioria como nulas, ficando inviável a listagem das informações necessárias para a tela de detalhes. Portanto, decidi utilizar os dados ja extraídos da API de consulta de filmes cujo estavam completos.
+   
+**Maior Desafio**
+
+   O desenvolvimento do projeto em si já foi um grande desafio que fez com que o conteúdo aprendido em curso fosse posto em pratica. Entretanto, a implementação do decoder para converter a lista de filmes em objetos da classe Filme e o mapeamento das classes com o estudo do retorno da API foi o maior desafio.
+
+
 # Avaliação Beca Mobile iOS
 
 Criar um aplicativo que realize a listagem de filmes e exibição dos detalhes:
