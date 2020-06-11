@@ -8,7 +8,7 @@
    
 **Maior Desafio**
 
-   O desenvolvimento do projeto em si já foi um grande desafio que fez com que o conteúdo aprendido em curso fosse posto em pratica. Entretanto, a implementação do decoder para converter a lista de filmes em objetos da classe Filme e o mapeamento das classes com o estudo do retorno da API foi o maior desafio.
+   Foi um grande desafio o desenvolvimento do projeto, onde, pude colocar em prática o conteúdo aprendido durante o curso. O maior desafio, foi realizar a implementação do decorder e o mapeamento das classes.
 
 
 # Avaliação Beca Mobile iOS
