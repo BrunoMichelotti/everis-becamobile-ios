@@ -90,9 +90,9 @@
 		17165F4B2489347E0063E60B /* weekly-popcorn */ = {
 			isa = PBXGroup;
 			children = (
+				175AAA002497CC4C00DF495B /* ViewModel */,
 				175AAA022497CC8600DF495B /* Model */,
 				175AAA012497CC7900DF495B /* View */,
-				175AAA002497CC4C00DF495B /* ViewModel */,
 				17165F4C2489347E0063E60B /* AppDelegate.swift */,
 				17165F502489347E0063E60B /* Main.storyboard */,
 				17165F56248934800063E60B /* Assets.xcassets */,
