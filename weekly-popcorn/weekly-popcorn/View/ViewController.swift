@@ -11,6 +11,7 @@ import AlamofireImage
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
+    @IBOutlet var teste: [UICollectionViewCell]!
     
     // MARK: - IBOutlet
     
@@ -31,6 +32,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     
     // MARK: - Metodos
+    
+    
     
     func getFilme(){
      FilmeAPI().consultaFilmes(sucesso: {

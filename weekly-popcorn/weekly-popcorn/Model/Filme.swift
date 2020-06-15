@@ -23,7 +23,8 @@ class Filme: NSObject,Decodable {
     let popularity: Double?
     let mediaType: String
     let adult: Bool?
-    let originalTitle, releaseDate, title: String?
+    let originalTitle, releaseDate: String?
+    var title: String?
     let video: Bool?
     
     enum CodingKeys: String, CodingKey {

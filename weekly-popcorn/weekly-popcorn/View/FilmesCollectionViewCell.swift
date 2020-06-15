@@ -12,6 +12,7 @@ import AlamofireImage
 class FilmesCollectionViewCell: UICollectionViewCell{
     
     // MARK: - IBOulet
+    
     @IBOutlet weak var ImagemFilme: UIImageView!
     
     // MARK: - Metodos
