@@ -11,6 +11,7 @@ import AlamofireImage
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
+    
     // MARK: - IBOutlet
     
     @IBOutlet weak var colecaoFilmes: UICollectionView!
@@ -32,14 +33,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     // MARK: - Metodos
     
     func getFilme(){
-        FilmeAPI().consultaFilmes(sucesso: {
+     FilmeAPI().consultaFilmes(sucesso: {
             (json) in
             guard let jsonData = Filme.converteListaParaData(json) else {return}
             guard let listaFilme = Filme.decodificarFilme(jsonData) else {return}
             self.paglistaFilmes = listaFilme
             self.colecaoFilmes.reloadData()
         })
-        
     }
     
     // MARK: - Navigation
