@@ -18,6 +18,7 @@ class FilmesCollectionViewCell: UICollectionViewCell{
     // MARK: - Variaveis
     
     let viewModel = FilmesCollectionViewCellViewModel()
+
     
     // MARK: - Metodos
     
@@ -29,6 +30,10 @@ class FilmesCollectionViewCell: UICollectionViewCell{
         layer.borderWidth = viewModel.borderWidth
         layer.borderColor = viewModel.borderColor
         layer.cornerRadius = viewModel.cornerRadius
+    }
+    
+    func ajusteAcessibilidade(filme : Filme, collection : UICollectionViewCell){
+        
     }
     
 }

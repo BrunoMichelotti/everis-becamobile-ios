@@ -11,12 +11,13 @@ import AlamofireImage
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
-    @IBOutlet var teste: [UICollectionViewCell]!
     
     // MARK: - IBOutlet
     
     @IBOutlet weak var colecaoFilmes: UICollectionView!
     
+    @IBOutlet weak var Header: UILabel!
+
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -53,6 +54,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let filmeAtual = paglistaFilmes[indexPath.item]
         celulaFilme.ajusteLayout()
         celulaFilme.atribuiImagem(posterPath: filmeAtual.posterPath)
+        
+        if filmeAtual.title == nil {
+            celulaFilme.ImagemFilme.accessibilityLabel = filmeAtual.name!
+        }else{
+            celulaFilme.ImagemFilme.accessibilityLabel = filmeAtual.title!
+        }
+           // celulaFilme.ImagemFilme.isAccessibilityElement = true
+           // celulaFilme.ImagemFilme.accessibilityHint = "teste"
+        //celulaFilme.ajusteAcessibilidade(filme: filmeAtual)
+        
         return celulaFilme
     }
 

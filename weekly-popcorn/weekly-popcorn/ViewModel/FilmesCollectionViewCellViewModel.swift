@@ -26,5 +26,13 @@ class FilmesCollectionViewCellViewModel{
         
     }
     
+//    func ajusteAcessibilidade(filme: Filme, collection: UICollectionViewCell){
+//        if filme.title == nil {
+//            collection.ImagemFilme.accessibilityLabel = filme.name
+//        }else{
+//          collection.ImagemFilme.accessibilityLabel = filme.title
+//        }
+//    }
+    
     
 }

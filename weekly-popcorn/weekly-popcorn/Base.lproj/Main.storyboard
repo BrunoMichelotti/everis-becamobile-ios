@@ -23,6 +23,9 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly PopCorn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkk-0A-xdH">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="40"/>
+                                        <accessibility key="accessibilityConfiguration" label="Weekly PopCorn">
+                                            <accessibilityTraits key="traits" header="YES"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="zGX-dC-yJq"/>
                                         </constraints>
@@ -50,6 +53,9 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lpc-ZM-aiD">
                                                             <rect key="frame" x="0.0" y="0.0" width="101" height="160"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <bool key="isElement" value="YES"/>
+                                                            </accessibility>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="160" id="oEd-iL-Zg9"/>
                                                             </constraints>
@@ -80,6 +86,7 @@
                         <viewLayoutGuide key="safeArea" id="8PL-iw-Oil"/>
                     </view>
                     <connections>
+                        <outlet property="Header" destination="rkk-0A-xdH" id="t7J-bC-jcR"/>
                         <outlet property="colecaoFilmes" destination="Eop-S6-FMa" id="oDz-Am-f0h"/>
                     </connections>
                 </viewController>
@@ -144,6 +151,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d81-tL-oLs">
                                 <rect key="frame" x="26" y="57" width="20" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Voltar"/>
                                 <state key="normal" image="DMVSq.png">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
