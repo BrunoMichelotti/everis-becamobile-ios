@@ -42,16 +42,16 @@ class DetalhesFilmeViewController: UIViewController{
     
     //A consulta da api de detalhes (getDetalhesFilme) foi implementada no projeto com sucesso conforme proposto ao exercicio porém, conforme analise do retorno, verifiquei que esta api de detalhes trazia algumas informacoes incompletas, ficando inviavel a listagem das informacoes necessarias para a tela de detalhes. Portanto decidi utilizar a api de consulta de lista de filmes cujo os dados estão completos
     
-//    func  getDetalhesFilme(filme : Filme){
-//
-//        DetalhesFilmeAPI().consultaDetalhesFilme(filmeId: filme.id) { (json) in
-//            guard let jsonData = DetalhesFilme.converteListaParaData(json) else {return}
-//            guard let detalhesFilme = DetalhesFilme.decodificarFilme(jsonData) else {return}
-//            self.tituloFilme.text = detalhesFilme.title
-//            self.sinopseFilme.text = detalhesFilme.overview
-//
-//        }
-//    }
+    func  getDetalhesFilme(filme : Filme){
+
+        DetalhesFilmeAPI().consultaDetalhesFilme(filmeId: filme.id) { (json) in
+            guard let jsonData = DetalhesFilme.converteListaParaData(json) else {return}
+            guard let detalhesFilme = DetalhesFilme.decodificarFilme(jsonData) else {return}
+            self.tituloFilme.text = detalhesFilme.title
+            self.sinopseFilme.text = detalhesFilme.overview
+
+        }
+   }
     
     
 }

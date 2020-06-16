@@ -30,11 +30,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     var paglistaFilmes: Array<Filme> = []
     
-    
     // MARK: - Metodos
-    
-    
-    
+
     func getFilme(){
      FilmeAPI().consultaFilmes(sucesso: {
             (json) in
@@ -54,8 +51,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let celulaFilme = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaFilme", for: indexPath) as! FilmesCollectionViewCell
         let filmeAtual = paglistaFilmes[indexPath.item]
-        celulaFilme.ajusteLayout(celulaAtual: celulaFilme)
-        celulaFilme.atribuiImagem(imagemFilme: filmeAtual.posterPath)
+        celulaFilme.ajusteLayout()
+        celulaFilme.atribuiImagem(posterPath: filmeAtual.posterPath)
         return celulaFilme
     }
 

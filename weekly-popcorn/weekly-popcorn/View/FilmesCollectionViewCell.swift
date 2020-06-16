@@ -15,19 +15,20 @@ class FilmesCollectionViewCell: UICollectionViewCell{
     
     @IBOutlet weak var ImagemFilme: UIImageView!
     
+    // MARK: - Variaveis
+    
+    let viewModel = FilmesCollectionViewCellViewModel()
+    
     // MARK: - Metodos
     
-    func atribuiImagem(imagemFilme: String){
-        if let imagem = FilmeAPI().urlImagem(poster: imagemFilme){
-            ImagemFilme.af_setImage(withURL: imagem)
-        }
+    func atribuiImagem(posterPath: String){
+        viewModel.mapeiaImagem(imagem: ImagemFilme, posterpath: posterPath)
     }
     
-    func ajusteLayout(celulaAtual: FilmesCollectionViewCell){
-        celulaAtual.layer.borderWidth = 0.5
-        celulaAtual.layer.borderColor = UIColor(red: 85.0/255.0, green: 85.0/255.0, blue: 85.0/255.0, alpha: 1).cgColor
-        celulaAtual.layer.cornerRadius = 2
+    func ajusteLayout(){
+        layer.borderWidth = viewModel.borderWidth
+        layer.borderColor = viewModel.borderColor
+        layer.cornerRadius = viewModel.cornerRadius
     }
     
- 
 }

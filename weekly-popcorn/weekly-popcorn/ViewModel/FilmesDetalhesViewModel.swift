@@ -11,11 +11,17 @@ import AlamofireImage
 
 class FilmesDetalhesViewModel{
     
+    // MARK: Variaveis
+    
     var filme: Filme?
-  
+    
+    // MARK: Construtor
+    
     init(_ filme: Filme?) {
         self.filme = filme
     }
+    
+    // MARK: - Metodos
     
     func mapeiaTela(imagem : UIImageView,tituloFilme: UILabel, ratingFilme: UILabel,sinopseFilme: UILabel ){
         guard let filmeSelecionado = filme else {return}
