@@ -49,8 +49,8 @@ class DetalhesFilmeViewController: UIViewController{
             guard let detalhesFilme = DetalhesFilme.decodificarFilme(jsonData) else {return}
             self.tituloFilme.text = detalhesFilme.title
             self.sinopseFilme.text = detalhesFilme.overview
-
         }
+        
    }
     
     

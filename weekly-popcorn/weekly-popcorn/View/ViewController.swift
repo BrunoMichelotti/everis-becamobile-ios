@@ -54,15 +54,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let filmeAtual = paglistaFilmes[indexPath.item]
         celulaFilme.ajusteLayout()
         celulaFilme.atribuiImagem(posterPath: filmeAtual.posterPath)
-        
-        if filmeAtual.title == nil {
-            celulaFilme.ImagemFilme.accessibilityLabel = filmeAtual.name!
-        }else{
-            celulaFilme.ImagemFilme.accessibilityLabel = filmeAtual.title!
-        }
-           // celulaFilme.ImagemFilme.isAccessibilityElement = true
-           // celulaFilme.ImagemFilme.accessibilityHint = "teste"
-        //celulaFilme.ajusteAcessibilidade(filme: filmeAtual)
+        celulaFilme.ajusteAcessibilidade(filme: filmeAtual)
         
         return celulaFilme
     }

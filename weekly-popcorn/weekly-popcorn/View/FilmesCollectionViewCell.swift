@@ -32,8 +32,8 @@ class FilmesCollectionViewCell: UICollectionViewCell{
         layer.cornerRadius = viewModel.cornerRadius
     }
     
-    func ajusteAcessibilidade(filme : Filme, collection : UICollectionViewCell){
-        
+    func ajusteAcessibilidade(filme : Filme){
+        viewModel.ajusteAcessibilidade(filme: filme, collection: self)
     }
     
 }
